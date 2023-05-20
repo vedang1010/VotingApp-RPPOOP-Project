@@ -54,7 +54,7 @@
             android:layout_marginTop="52dp"
             android:layout_marginEnd="60dp"
             android:background="@drawable/background_btn_intro1"
-            android:onClick="openLogIn"
+            android:onClick="openLogin"
             android:text="@string/signin"
             android:textColor="#F2A82B"
             android:textSize="24sp"
@@ -78,17 +78,16 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"/>
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"/>-->
 
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:onClick="openLogin"
         android:orientation="vertical">
 
         <Button
