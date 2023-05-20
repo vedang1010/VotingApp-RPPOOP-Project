@@ -53,6 +53,7 @@
             android:layout_marginTop="41dp"
             android:layout_marginEnd="128dp"
             android:background="@drawable/btn_orange"
+            android:onClick="gotoHome"
             android:text="@string/signin"
             android:textColor="#EFECE6"
             android:textSize="24sp"

@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,5 +13,8 @@ public class signUpActivity extends AppCompatActivity {
             super.onCreate(savedInstanceSate);
             setContentView(R.layout.activity_signup);
     }
-
+    public void gotoLogin(View view){
+        Intent intent = new Intent(this,HomeActivity.class);
+        startActivity(intent);
+    }
 }

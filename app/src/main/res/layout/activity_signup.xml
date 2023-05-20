@@ -41,6 +41,7 @@
         android:layout_width="191dp"
         android:layout_height="43dp"
         android:background="@drawable/btn_orange"
+        android:onClick="gotoLogin"
         android:text="Sign Up"
         android:textColor="#EFECE6"
         android:textSize="24sp"
