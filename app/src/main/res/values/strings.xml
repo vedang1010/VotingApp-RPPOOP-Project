@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">VotingApp</string>
+    <string name="signin">LogIn</string>
+    <string name="open">Open Navigation</string>
+    <string name="close">Close Navigation</string>
+    <string name="username">Username</string>
+    <string name="pass">Password</string>
+    <string name="navigation_drawer_open">navigation_drawer_open</string>
+    <string name="navigation_drawer_close">navigation_drawer_close</string>
+    <string name="create_poll_title">create_poll_title</string>
+    <string name="home_title">home_title</string>
+    <string name="show_polls_title">show_polls_title</string>
+</resources>

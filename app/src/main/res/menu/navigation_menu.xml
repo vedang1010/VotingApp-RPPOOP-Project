@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_create_poll"
+        android:title="Create Poll" />
+    <item
+        android:id="@+id/nav_show_polls"
+        android:title="Show Polls" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout" />
+</menu>
