@@ -58,7 +58,7 @@
         android:layout_marginTop="28dp"
         android:background="@drawable/editor_background"
         android:ems="10"
-        android:hint="College id"
+        android:hint="Phone"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
         app:layout_constraintStart_toStartOf="@+id/textView3"
