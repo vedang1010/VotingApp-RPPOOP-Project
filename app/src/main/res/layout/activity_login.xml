@@ -42,7 +42,7 @@
             app:srcCompat="@drawable/image" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonSignUp"
             style="@android:style/Widget.Button"
             android:layout_width="132dp"
             android:layout_height="wrap_content"
