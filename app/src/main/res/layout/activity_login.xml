@@ -61,6 +61,7 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
+            android:drawableRight="@drawable/ic_user"
             android:layout_width="227dp"
             android:layout_height="52dp"
             android:layout_below="@+id/imageView2"
@@ -77,6 +78,7 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName4"
+            android:drawableRight="@drawable/ic_baseline_lock_24"
             android:layout_width="229dp"
             android:layout_height="58dp"
             android:layout_below="@+id/editTextTextPersonName2"

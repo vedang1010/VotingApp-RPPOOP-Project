@@ -14,7 +14,7 @@ public class signUpActivity extends AppCompatActivity {
             setContentView(R.layout.activity_signup);
     }
     public void gotoLogin(View view){
-        Intent intent = new Intent(this,HomeActivity.class);
+        Intent intent = new Intent(this,logInActivity.class);
         startActivity(intent);
     }
 }
