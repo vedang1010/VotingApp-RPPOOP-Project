@@ -24,6 +24,7 @@
         <activity
             android:name=".logInActivity"
             android:label="LogIn"/>
+
         <activity
             android:name=".menuActivity"
             android:label="Menu" />
@@ -47,16 +48,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomeActivity"
-            android:label="@string/home_title"
-            android:parentActivityName=".MainActivity"
+            android:name=".Profile"
+            android:label="@string/create_poll_title"
+            android:parentActivityName=".HomeActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.example.myapp.ACTION_HOME" />
+                <action android:name="com.example.myapp.ACTION_PROFILE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ShowPollsActivity"
             android:label="@string/show_polls_title"
@@ -64,6 +64,17 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.myapp.ACTION_SHOW_POLLS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/home_title"
+            android:parentActivityName=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.myapp.ACTION_HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
