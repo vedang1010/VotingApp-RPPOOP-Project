@@ -7,19 +7,18 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+//import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatEditText;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
-import java.text.BreakIterator;
-
 public class signUpActivity extends AppCompatActivity {
 
-    TextInputEditText textInputEditTextfullname , textInputEditTextusername , textInputEditTextemail , textInputEditTextcollegeid , textInputEditTextpassword , textInputEditTextconfirmpassword;
+    AppCompatEditText textInputEditTextfullname , textInputEditTextusername , textInputEditTextemail , textInputEditTextcollegeid , textInputEditTextpassword , textInputEditTextconfirmpassword;
     Button buttonSignUp;
 //    TextView textviewlogin;
 
@@ -30,11 +29,11 @@ public class signUpActivity extends AppCompatActivity {
             setContentView(R.layout.activity_signup);
 
             textInputEditTextfullname = findViewById(R.id.fullname);
-            textInputEditTextfullname = findViewById(R.id.username);
-            textInputEditTextfullname = findViewById(R.id.email);
-            textInputEditTextfullname = findViewById(R.id.collegeid);
-            textInputEditTextfullname = findViewById(R.id.password);
-            textInputEditTextfullname = findViewById(R.id.confirmpassword);
+            textInputEditTextusername = findViewById(R.id.username);
+            textInputEditTextemail = findViewById(R.id.email);
+            textInputEditTextcollegeid = findViewById(R.id.collegeid);
+            textInputEditTextpassword = findViewById(R.id.password);
+            textInputEditTextconfirmpassword = findViewById(R.id.confirmpassword);
             buttonSignUp = findViewById(R.id.buttonSignUp);
 
             buttonSignUp.setOnClickListener(new View.OnClickListener() {

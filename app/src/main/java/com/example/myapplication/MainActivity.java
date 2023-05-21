@@ -17,16 +17,17 @@ public class MainActivity extends AppCompatActivity {
 //            @Override
         }
 
-    public void openHome(View view) {
-        Intent intent = new Intent(this, menuActivity.class);
-        startActivity(intent);
-    }
     public void openSignUp(View view){
 //        startActivity(new Intent(this,MainActivity2.class));
-        Intent intent2 = new Intent(this,signUpActivity.class);
-        startActivity(intent2);
+        Intent intent = new Intent(this,signUpActivity.class);
+        startActivity(intent);
     }public void openLogin(View view){
 //        startActivity(new Intent(this,MainActivity2.class));
+        Intent intent2 = new Intent(this,logInActivity.class);
+        startActivity(intent2);
+    }
+
+    public void gotoLogin(View view) {
         Intent intent3 = new Intent(this,logInActivity.class);
         startActivity(intent3);
     }

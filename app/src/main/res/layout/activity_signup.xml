@@ -12,7 +12,7 @@
         android:layout_width="310dp"
         android:layout_height="57dp"
         android:layout_marginTop="40dp"
-        android:text="SIGN UP HERE"
+        android:text="@string/sign_up_here"
         android:textAlignment="center"
         android:textColor="#F8693C"
         android:textSize="40sp"
@@ -29,11 +29,12 @@
         android:layout_marginTop="28dp"
         android:background="@drawable/editor_background"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/Username"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
         app:layout_constraintStart_toStartOf="@+id/fullname"
-        app:layout_constraintTop_toBottomOf="@+id/fullname" />
+        app:layout_constraintTop_toBottomOf="@+id/fullname"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/buttonSignUp"
@@ -42,7 +43,7 @@
         android:layout_height="43dp"
         android:background="@drawable/btn_orange"
         android:onClick="gotoLogin"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         android:textColor="#EFECE6"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -59,11 +60,12 @@
         android:layout_marginTop="28dp"
         android:background="@drawable/editor_background"
         android:ems="10"
-        android:hint="College ID"
+        android:hint="@string/college_id"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
         app:layout_constraintStart_toStartOf="@+id/email"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/password"
@@ -73,10 +75,11 @@
         android:background="@drawable/editor_background"
         android:ems="10"
         android:hint="@string/pass"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:paddingStart="10dp"
         app:layout_constraintStart_toStartOf="@+id/collegeid"
-        app:layout_constraintTop_toBottomOf="@+id/collegeid" />
+        app:layout_constraintTop_toBottomOf="@+id/collegeid"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/fullname"
@@ -85,14 +88,15 @@
         android:layout_marginTop="36dp"
         android:background="@drawable/editor_background"
         android:ems="10"
-        android:hint="Full Name"
+        android:hint="@string/full_name"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
         app:autoSizeTextType="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/email"
@@ -100,13 +104,14 @@
         android:layout_height="54dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/editor_background"
-        android:hint="Email"
-        android:inputType="textPersonName"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
         android:paddingStart="10dp"
         android:paddingTop="7dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/username"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/confirmpassword"
@@ -114,12 +119,13 @@
         android:layout_height="54dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/editor_background"
-        android:hint="Confirm Password"
-        android:inputType="textPersonName"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
         android:paddingStart="10dp"
         android:paddingTop="6dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        android:autofillHints="" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

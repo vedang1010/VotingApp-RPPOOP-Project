@@ -10,4 +10,11 @@
     <string name="create_poll_title">create_poll_title</string>
     <string name="home_title">home_title</string>
     <string name="show_polls_title">show_polls_title</string>
+    <string name="sign_up_here">SIGN UP HERE</string>
+    <string name="Username">Username</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="college_id">College ID</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>
