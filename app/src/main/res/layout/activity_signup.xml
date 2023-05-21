@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName7"
+        android:id="@+id/username"
         android:layout_width="279dp"
         android:layout_height="54dp"
         android:layout_marginTop="28dp"
@@ -32,8 +32,8 @@
         android:hint="Username"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/fullname"
+        app:layout_constraintTop_toBottomOf="@+id/fullname" />
 
     <Button
         android:id="@+id/button2"
@@ -50,10 +50,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmpassword" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/collegeid"
         android:layout_width="279dp"
         android:layout_height="54dp"
         android:layout_marginTop="28dp"
@@ -62,11 +62,11 @@
         android:hint="College ID"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintStart_toStartOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName9"
+        android:id="@+id/password"
         android:layout_width="279dp"
         android:layout_height="54dp"
         android:layout_marginTop="28dp"
@@ -75,11 +75,11 @@
         android:hint="@string/pass"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintStart_toStartOf="@+id/collegeid"
+        app:layout_constraintTop_toBottomOf="@+id/collegeid" />
 
     <EditText
-        android:id="@+id/textView2"
+        android:id="@+id/fullname"
         android:layout_width="279dp"
         android:layout_height="54dp"
         android:layout_marginTop="36dp"
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/textView3"
+        android:id="@+id/email"
         android:layout_width="279dp"
         android:layout_height="54dp"
         android:layout_marginTop="28dp"
@@ -105,11 +105,11 @@
         android:paddingStart="10dp"
         android:paddingTop="7dp"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName7"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+        app:layout_constraintStart_toStartOf="@+id/username"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <EditText
-        android:id="@+id/textView5"
+        android:id="@+id/confirmpassword"
         android:layout_width="279dp"
         android:layout_height="54dp"
         android:layout_marginTop="28dp"
@@ -119,7 +119,7 @@
         android:paddingStart="10dp"
         android:paddingTop="6dp"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName9"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
