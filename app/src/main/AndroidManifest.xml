@@ -48,21 +48,20 @@
             </intent-filter>
         </activity>
         <activity
-<<<<<<< Updated upstream
             android:name=".Profile"
             android:label="@string/create_poll_title"
             android:parentActivityName=".HomeActivity"
-=======
-            android:name=".HomeActivity"
-            android:label="home_title"
-            android:parentActivityName=".MainActivity"
->>>>>>> Stashed changes
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.myapp.ACTION_PROFILE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+    />
+<!--    <activity-->
+<!--            android:name=".HomeActivity"-->
+<!--            android:label="home_title"-->
+<!--            android:parentActivityName=".MainActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.example.myapp.ACTION_PROFILE" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
         <activity
             android:name=".ShowPollsActivity"
             android:label="@string/show_polls_title"
