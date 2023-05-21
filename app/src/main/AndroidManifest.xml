@@ -48,9 +48,15 @@
             </intent-filter>
         </activity>
         <activity
+<<<<<<< Updated upstream
             android:name=".Profile"
             android:label="@string/create_poll_title"
             android:parentActivityName=".HomeActivity"
+=======
+            android:name=".HomeActivity"
+            android:label="home_title"
+            android:parentActivityName=".MainActivity"
+>>>>>>> Stashed changes
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.myapp.ACTION_PROFILE" />
