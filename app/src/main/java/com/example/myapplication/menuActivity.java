@@ -11,6 +11,6 @@ public class menuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.createpoll);
+        setContentView(R.layout.activity_create_poll);
     }
 }

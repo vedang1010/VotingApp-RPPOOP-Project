@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "954116168733",
+    "project_id": "election-7",
+    "storage_bucket": "election-7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954116168733:android:78a5f205f0de88510afaf4",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954116168733-mjcfigqh13vkg8sg4qbsqi4quctn5cda.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClo1BXp_efHU7qIO5OJ7AbZG0KVHRZfe8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954116168733-mjcfigqh13vkg8sg4qbsqi4quctn5cda.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

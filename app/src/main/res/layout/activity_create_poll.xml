@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".CreatePollActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Question:"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Election Name" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Options:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/edit_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name of Candidates" />
+
+    <Button
+        android:id="@+id/button_add_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Option"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button_create_poll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Poll"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
