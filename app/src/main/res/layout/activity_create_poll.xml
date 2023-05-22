@@ -1,51 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".CreatePollActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/questionLabel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Question:"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edit_question"
+        android:id="@+id/questionEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Election Name" />
+        android:layout_below="@id/questionLabel"
+        android:layout_marginTop="8dp"
+        android:inputType="text" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/optionsLabel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/questionEditText"
+        android:layout_marginTop="16dp"
         android:text="Options:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edit_option"
+    <LinearLayout
+        android:id="@+id/optionsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Name of Candidates" />
+        android:layout_below="@id/optionsLabel"
+        android:orientation="vertical" />
 
     <Button
-        android:id="@+id/button_add_option"
+        android:id="@+id/addOptionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Option"
-        android:layout_marginTop="16dp" />
+        android:layout_below="@id/optionsLayout"
+        android:layout_marginTop="16dp"
+        android:text="Add Option" />
 
     <Button
-        android:id="@+id/button_create_poll"
+        android:id="@+id/createPollButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Poll"
-        android:layout_marginTop="16dp" />
+        android:layout_below="@id/addOptionButton"
+        android:layout_marginTop="16dp"
+        android:text="Create Poll" />
 
-</LinearLayout>
+</RelativeLayout>
