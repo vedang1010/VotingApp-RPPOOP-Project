@@ -68,6 +68,8 @@ public class signUpActivity extends AppCompatActivity {
                                 userReference.child("password").setValue(password);
 
                                 Toast.makeText(signUpActivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(signUpActivity.this,logInActivity.class ));
+
                                 finish();
                             }
                         }
@@ -82,8 +84,8 @@ public class signUpActivity extends AppCompatActivity {
         });
     }
 
-    public void gotoLogin(View view) {
-        Intent intent = new Intent(this, logInActivity.class);
-        startActivity(intent);
-    }
+//    public void gotoLogin(View view) {
+//        Intent intent = new Intent(this, logInActivity.class);
+//        startActivity(intent);
+//    }
 }
