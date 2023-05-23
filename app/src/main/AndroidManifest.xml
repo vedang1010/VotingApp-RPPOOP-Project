@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"  package="com.example.myapplication">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--    <application-->
-    <!--        android:allowBackup="true"-->
-    <!--        android:icon="@mipmap/ic_launcher"-->
-    <!--        android:label="@string/app_name"-->
-    <!--        android:roundIcon="@mipmap/ic_launcher_round"-->
-    <!--        android:supportsRtl="true"-->
-    <!--        android:theme="@style/AppTheme">-->
-<!--    <users-permission android:name="android.permission.INTERNET"/>-->
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -19,22 +13,24 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.VotingApp"
-        tools:targetApi="31" >
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".PollAdmin"
+            android:exported="false" />
         <activity
             android:name=".signUpActivity"
-            android:label="Sign Up"/>
+            android:label="Sign Up" />
         <activity
             android:name=".logInActivity"
-            android:label="LogIn"/>
-
+            android:label="LogIn" />
         <activity
             android:name=".menuActivity"
             android:label="Menu" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,47 +39,47 @@
         </activity>
         <activity
             android:name=".CreatePollActivity"
+            android:exported="true"
             android:label="@string/create_poll_title"
-            android:parentActivityName=".HomeActivity"
-            android:exported="true">
+            android:parentActivityName=".HomeActivity">
             <intent-filter>
                 <action android:name="com.example.myapp.ACTION_CREATE_POLL" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Profile"
             android:label="@string/create_poll_title"
-            android:parentActivityName=".HomeActivity"
-    />
-<!--    <activity-->
-<!--            android:name=".HomeActivity"-->
-<!--            android:label="home_title"-->
-<!--            android:parentActivityName=".MainActivity"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="com.example.myapp.ACTION_PROFILE" />-->
-<!--                <category android:name="android.intent.category.DEFAULT" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+            android:parentActivityName=".HomeActivity" /> <!-- <activity -->
+        <!-- android:name=".HomeActivity" -->
+        <!-- android:label="home_title" -->
+        <!-- android:parentActivityName=".MainActivity" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.example.myapp.ACTION_PROFILE" /> -->
+        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".ShowPollsActivity"
+            android:exported="true"
             android:label="@string/show_polls_title"
-            android:parentActivityName=".HomeActivity"
-            android:exported="true">
+            android:parentActivityName=".HomeActivity">
             <intent-filter>
                 <action android:name="com.example.myapp.ACTION_SHOW_POLLS" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".HomeActivity"
+            android:exported="true"
             android:label="@string/home_title"
-            android:parentActivityName=".MainActivity"
-            android:exported="true">
+            android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="com.example.myapp.ACTION_HOME" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

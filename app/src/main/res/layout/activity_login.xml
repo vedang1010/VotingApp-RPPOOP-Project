@@ -89,7 +89,7 @@
             android:background="@drawable/editor_background"
             android:ems="10"
             android:hint="@string/pass"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:paddingStart="10dp" />
 
     </RelativeLayout>

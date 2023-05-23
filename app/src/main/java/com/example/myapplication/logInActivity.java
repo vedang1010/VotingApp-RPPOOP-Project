@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class logInActivity extends AppCompatActivity {
-
+    String user,pass;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
 
     @Override
@@ -34,6 +34,8 @@ public class logInActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String usernameTxt = username.getText().toString();
                 final String passwordTxt = password.getText().toString();
+                user=usernameTxt;
+                pass=passwordTxt;
                 if (usernameTxt.isEmpty() || passwordTxt.isEmpty()) {
                     Toast.makeText(logInActivity.this, "Please Enter your username or password", Toast.LENGTH_SHORT).show();
                 } else {
@@ -66,6 +68,7 @@ public class logInActivity extends AppCompatActivity {
         });
 
     }
+//    public void
 }
 //    public void gotoHome(View view){
 //        Intent intent = new Intent(this,HomeActivity.class);
