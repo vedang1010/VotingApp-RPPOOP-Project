@@ -58,7 +58,7 @@ public class logInActivity extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-
+                            Toast.makeText(logInActivity.this, "Database error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
