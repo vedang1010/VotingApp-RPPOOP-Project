@@ -3,109 +3,87 @@ package com.example.myapplication;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
-//import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatEditText;
 
-import com.google.android.material.textfield.TextInputEditText;
-import com.vishnusivadas.advanced_httpurlconnection.PutData;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class signUpActivity extends AppCompatActivity {
+    DatabaseReference databaseReference;
 
-    AppCompatEditText textInputEditTextfullname , textInputEditTextusername , textInputEditTextemail , textInputEditTextcollegeid , textInputEditTextpassword , textInputEditTextconfirmpassword;
+    EditText textInputEditTextfullname, textInputEditTextusername, textInputEditTextemail, textInputEditTextcollegeid, textInputEditTextpassword, textInputEditTextconfirmpassword;
     Button buttonSignUp;
-//    TextView textviewlogin;
 
     @SuppressLint("WrongViewCast")
     @Override
-    protected void onCreate(Bundle savedInstanceSate){
-            super.onCreate(savedInstanceSate);
-            setContentView(R.layout.activity_signup);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_signup);
 
-            textInputEditTextfullname = findViewById(R.id.fullname);
-            textInputEditTextusername = findViewById(R.id.username);
-            textInputEditTextemail = findViewById(R.id.email);
-            textInputEditTextcollegeid = findViewById(R.id.collegeid);
-            textInputEditTextpassword = findViewById(R.id.password);
-            textInputEditTextconfirmpassword = findViewById(R.id.confirmpassword);
-            buttonSignUp = findViewById(R.id.buttonSignUp);
+        // Initialize Firebase
+        databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
 
-            buttonSignUp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String fullname,username,email,password,confirmpassword,collegeid;
+        textInputEditTextfullname = findViewById(R.id.fullname);
+        textInputEditTextusername = findViewById(R.id.username);
+        textInputEditTextemail = findViewById(R.id.email);
+        textInputEditTextcollegeid = findViewById(R.id.collegeid);
+        textInputEditTextpassword = findViewById(R.id.password);
+        textInputEditTextconfirmpassword = findViewById(R.id.confirmpassword);
+        buttonSignUp = findViewById(R.id.buttonSignUp);
 
-                    fullname = String.valueOf(textInputEditTextfullname.getText());
-                    username = String.valueOf(textInputEditTextusername.getText());
-                    email = String.valueOf(textInputEditTextemail.getText());
-                    password = String.valueOf(textInputEditTextpassword.getText());
-                    confirmpassword = String.valueOf(textInputEditTextconfirmpassword.getText());
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String fullname = textInputEditTextfullname.getText().toString();
+                String username = textInputEditTextusername.getText().toString();
+                String email = textInputEditTextemail.getText().toString();
+                String collegeid = textInputEditTextcollegeid.getText().toString();
+                String password = textInputEditTextpassword.getText().toString();
+                String confirmpassword = textInputEditTextconfirmpassword.getText().toString();
 
-                    //string value of college id
-                    collegeid = String.valueOf(textInputEditTextcollegeid.getText());
+                if (fullname.isEmpty() || username.isEmpty() || email.isEmpty() || collegeid.isEmpty() || password.isEmpty() || confirmpassword.isEmpty()) {
+                    Toast.makeText(signUpActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
+                } else if (!password.equals(confirmpassword)) {
+                    Toast.makeText(signUpActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                } else {
+                    databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.hasChild(username)) {
+                                Toast.makeText(signUpActivity.this, "User is already registered", Toast.LENGTH_SHORT).show();
+                            } else {
+                                DatabaseReference userReference = databaseReference.child("users").child(username);
+                                userReference.child("fullname").setValue(fullname);
+                                userReference.child("email").setValue(email);
+                                userReference.child("collegeid").setValue(collegeid);
+                                userReference.child("password").setValue(password);
 
-                    //integer value of college id
-                    int intid = Integer.parseInt(collegeid);
-
-                    if(!fullname.equals("") && !username.equals("") && !email.equals("") && !password.equals("") && !confirmpassword.equals("") && !collegeid.equals("")) {
-
-                        //Start ProgressBar first (Set visibility VISIBLE)
-                        Handler handler = new Handler(Looper.getMainLooper());
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                //Starting Write and Read data with URL
-                                //Creating array for parameters
-                                String[] field = new String[6];
-                                field[0] = "fullname";
-                                field[1] = "username";
-                                field[2] = "email";
-                                field[3] = "collegeid";
-                                field[4] = "password";
-                                field[5] = "confirmpassword";
-
-
-                                //Creating array for data
-                                String[] data = new String[6];
-                                data[0] = fullname;
-                                data[1] = username;
-                                data[2] = email;
-                                data[3] = collegeid;
-                                data[4] = password;
-                                data[5] = confirmpassword;
-                                PutData putData = new PutData("http://192.168.209.35:81/SignUpRegister/signup.php", "POST", field, data);
-                                if (putData.startPut()) {
-                                    if (putData.onComplete()) {
-                                        String result = putData.getResult();
-                                        if(result.equals("Sign Up Success")){
-                                            Toast.makeText(getApplicationContext(),"all fields are required!!",Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(getApplicationContext(),logInActivity.class);
-                                            startActivity(intent);
-                                        }
-                                        else{
-                                            Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                }
-                                //End Write and Read data with URL
+                                Toast.makeText(signUpActivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
+                                finish();
                             }
-                        });
-                    }
-                    else{
-                        Toast.makeText(getApplicationContext(),"all fields are required!!",Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+                        }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(signUpActivity.this, "Database error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        });
     }
-//    public void gotoLogin(View view){
-//        Intent intent = new Intent(this,logInActivity.class);
-//        startActivity(intent);
-//    }
+
+    public void gotoLogin(View view) {
+        Intent intent = new Intent(this, logInActivity.class);
+        startActivity(intent);
+    }
 }

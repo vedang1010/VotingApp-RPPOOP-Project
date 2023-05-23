@@ -17,4 +17,7 @@
     <string name="full_name">Full Name</string>
     <string name="email">Email</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="password">password</string>
+    <string name="already_have_account">Already have a account?</string>
+    <string name="login">login</string>
 </resources>
