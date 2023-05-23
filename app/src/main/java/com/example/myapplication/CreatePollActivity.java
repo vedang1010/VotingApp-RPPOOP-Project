@@ -41,8 +41,10 @@ public class CreatePollActivity extends AppCompatActivity {
     private void addOptionEditText() {
         EditText optionEditText = new EditText(this);
         optionEditText.setLayoutParams(new LinearLayout.LayoutParams(
+//                LinearLayout.LayoutPara
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
+        optionEditText.setHint("enter candidate name");
         optionsLayout.addView(optionEditText);
     }
 

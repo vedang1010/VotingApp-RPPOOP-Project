@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/questionLabel"
         android:layout_marginTop="8dp"
+        android:hint="Enter Election Name"
         android:inputType="text" />
 
     <TextView
@@ -35,6 +36,7 @@
         android:id="@+id/optionsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Enter candidate name"
         android:layout_below="@id/optionsLabel"
         android:orientation="vertical" />
 
@@ -44,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/optionsLayout"
         android:layout_marginTop="16dp"
-        android:text="Add Option" />
+        android:text="Add Candidate" />
 
     <Button
         android:id="@+id/createPollButton"
