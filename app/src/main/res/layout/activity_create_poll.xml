@@ -9,7 +9,7 @@
         android:id="@+id/questionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Question:"
+        android:text="Elction Name:"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/questionEditText"
         android:layout_marginTop="16dp"
-        android:text="Options:"
+        android:text="Candidates:"
         android:textSize="18sp"
         android:textStyle="bold" />
 
