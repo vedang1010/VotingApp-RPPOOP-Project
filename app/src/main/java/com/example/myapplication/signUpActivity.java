@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 public class signUpActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
 
@@ -49,6 +50,7 @@ public class signUpActivity extends AppCompatActivity {
                 String collegeid = textInputEditTextcollegeid.getText().toString();
                 String password = textInputEditTextpassword.getText().toString();
                 String confirmpassword = textInputEditTextconfirmpassword.getText().toString();
+
 
                 if (fullname.isEmpty() || username.isEmpty() || email.isEmpty() || collegeid.isEmpty() || password.isEmpty() || confirmpassword.isEmpty()) {
                     Toast.makeText(signUpActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();

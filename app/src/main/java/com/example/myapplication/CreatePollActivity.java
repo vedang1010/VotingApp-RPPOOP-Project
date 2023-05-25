@@ -18,6 +18,9 @@ import com.google.firebase.database.ValueEventListener;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Random;
+import java.util.Random;
+
 public class CreatePollActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
@@ -27,6 +30,14 @@ public class CreatePollActivity extends AppCompatActivity {
     private Button addOptionButton;
     private Button createPollButton;
 
+
+    public Integer generatePollId(){
+        Random random = new Random();
+        int minRange = 100_000;  // Minimum 6-digit number
+        int maxRange = 999_999;  // Maximum 6-digit number
+
+        return random.nextInt(maxRange - minRange + 1) + minRange;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,13 +112,15 @@ public class CreatePollActivity extends AppCompatActivity {
         } else {
             databaseReference.child("Election").addListenerForSingleValueEvent(new ValueEventListener() {
 ////////
-                String owner;
+//                String owner;
+                int pollId=generatePollId();
                 //////////
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     DatabaseReference userReference = databaseReference.child("Election").child(question);
                     ////////
-                    databaseReference.child("Election").child(owner);
+//                    databaseReference.child("Election").child(owner);
+                    userReference.child("pollId").setValue(pollId);
                     /////////
                     for (int i = 0; i < optionCount; i++) {
                         LinearLayout optionLayout = (LinearLayout) optionsLayout.getChildAt(i);
