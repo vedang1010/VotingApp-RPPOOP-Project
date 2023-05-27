@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.content.SyncStatusObserver;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,7 +9,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -108,7 +110,9 @@ public class CreatePollActivity extends AppCompatActivity {
         }
         else if (optionCount<2) {
             Toast.makeText(CreatePollActivity.this, "Add atleast 2 Candidates", Toast.LENGTH_SHORT).show();
-
+        }
+        else if(question.equals("")){
+                Toast.makeText(this, "Please enter election name", Toast.LENGTH_SHORT).show();
         } else {
             databaseReference.child("Election").addListenerForSingleValueEvent(new ValueEventListener() {
 ////////

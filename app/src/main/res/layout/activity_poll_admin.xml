@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".PollAdmin">
 
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="247dp"
+        android:layout_height="114dp"
+        android:text="POLL INFO"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="277dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
