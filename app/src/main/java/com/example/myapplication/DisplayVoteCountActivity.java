@@ -23,30 +23,25 @@ public class DisplayVoteCountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_vote_count);
 
         // Initialize the TextView
-        voteCountTextView = findViewById(R.id.voteCountTextView);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/").child("Election").child("Your_Election_Name").child("Candidates");
 
-        // Get the candidate ID from the intent or any other source
-        String candidateId = "candidate1";
-
-        // Get the reference to the candidate in the database
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        candidateReference = databaseReference.child("Candidates").child(candidateId);
-
-        // Set up a ValueEventListener to listen for changes in the vote count
-        candidateReference.child("vote").addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Retrieve the vote count from the dataSnapshot
-                Long voteCount = dataSnapshot.getValue(Long.class);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot candidateSnapshot : dataSnapshot.getChildren()) {
+                    String candidateName = candidateSnapshot.child("name").getValue(String.class);
+                    int voteCount = candidateSnapshot.child("vote").getValue(Integer.class);
 
-                // Update the vote count in the TextView
-                voteCountTextView.setText("Vote Count: " + voteCount);
+                    // Display the candidate name and vote count
+                    System.out.println("Candidate: " + candidateName + ", Vote Count: " + voteCount);
+                }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle any database error
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle database error
             }
         });
+
     }
 }
