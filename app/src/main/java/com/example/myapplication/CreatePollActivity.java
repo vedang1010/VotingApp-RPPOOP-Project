@@ -125,6 +125,7 @@ public class CreatePollActivity extends AppCompatActivity {
                     ////////
 //                    databaseReference.child("Election").child(owner);
                     userReference.child("pollId").setValue(pollId);
+                    userReference.child("Candidates");
                     /////////
                     for (int i = 0; i < optionCount; i++) {
                         LinearLayout optionLayout = (LinearLayout) optionsLayout.getChildAt(i);
@@ -132,9 +133,9 @@ public class CreatePollActivity extends AppCompatActivity {
                         String option = optionEditText.getText().toString();
                         String s = String.format("Candidate %d", i + 1);
                         int vote=0;
-                        userReference.child(s).child("name").setValue(option);
+                        userReference.child("Candidates").child(s).child("name").setValue(option);
                         System.out.println(option);
-                        userReference.child(s).child("vote").setValue(vote);
+                        userReference.child("Candidates").child(s).child("vote").setValue(vote);
                     }
                     Toast.makeText(CreatePollActivity.this, "Poll Created successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(CreatePollActivity.this, PollAdmin.class));
