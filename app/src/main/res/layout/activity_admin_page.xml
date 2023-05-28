@@ -13,7 +13,7 @@
         android:layout_marginTop="276dp"
         android:layout_marginEnd="120dp"
         android:onClick="gotoHome"
-        android:text="Button"
+        android:text="Home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +24,7 @@
         android:layout_marginTop="84dp"
         android:layout_marginEnd="16dp"
         android:onClick="gotoViewCount"
-        android:text="Button"
+        android:text="Polls Info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,9 +32,10 @@
         android:id="@+id/button8"
         android:layout_width="168dp"
         android:layout_height="107dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="84dp"
         android:onClick="gotoCreatePolls"
-        android:text="Button"
+        android:text="Create Polls"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
