@@ -13,7 +13,7 @@ public class AdminPage extends AppCompatActivity {
         setContentView(R.layout.activity_admin_page);
     }
     public void gotoCreatePolls(){
-        Intent i1=new Intent(AdminPage.this,CreatePollActivty.class);
+        Intent i1=new Intent(AdminPage.this,CreatePollActivity.class);
         startActivity(i1);
     }
     public void gotoViewCount(){

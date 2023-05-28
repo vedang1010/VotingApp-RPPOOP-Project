@@ -12,8 +12,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
     }
-    public void gotoCreatePolls(View view) {
-        Intent intent = new Intent(this, CreatePollActivity.class);
+    public void gotoAdmin(View view) {
+        Intent intent = new Intent(this, AdminPage.class);
         startActivity(intent);
     }
 

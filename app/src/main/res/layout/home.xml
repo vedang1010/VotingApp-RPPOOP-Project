@@ -16,8 +16,8 @@
             android:layout_height="127dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="92dp"
-            android:onClick="gotoCreatePolls"
-            android:text="CREATE POLLS"
+            android:onClick="gotoAdmin"
+            android:text="ADMIN"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
