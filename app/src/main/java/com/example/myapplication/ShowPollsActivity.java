@@ -75,7 +75,7 @@ public class ShowPollsActivity extends AppCompatActivity {
                         Button button=(Button) v;
                         String buttonTxt=button.getText().toString();
                         ElectionName=buttonTxt;
-                        startActivity(new Intent(ShowPollsActivity.this,DisplayVoteCountActivity.class ));
+                        startActivity(new Intent(ShowPollsActivity.this, VoteCandidateActivity.class ));
                         // Handle button click
                         // You can perform any desired action here, such as navigating to a detail activity
                         // or starting the voting process for the selected poll
