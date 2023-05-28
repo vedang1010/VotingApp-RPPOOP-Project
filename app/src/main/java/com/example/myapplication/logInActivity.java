@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 public class logInActivity extends AppCompatActivity {
     String user,pass;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
-
+    public static String logedInUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +46,7 @@ public class logInActivity extends AppCompatActivity {
                                 final String getPassword = snapshot.child(usernameTxt).child("password").getValue(String.class);
 
                                 if (getPassword.equals(passwordTxt)) {
+                                    logedInUser= usernameTxt;
                                     Toast.makeText(logInActivity.this, "Successfully Logged In", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(logInActivity.this,HomeActivity.class ));
                                     finish();

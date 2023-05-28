@@ -19,6 +19,7 @@ import java.util.List;
 public class ShowPollsActivity extends AppCompatActivity {
     private ListView pollsListView;
     private List<String> pollNames;
+    public static String ElectionName;
     private DatabaseReference databaseReference;
 
     @Override
@@ -40,7 +41,7 @@ public class ShowPollsActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 pollNames.clear();
                 for (DataSnapshot pollSnapshot : dataSnapshot.getChildren()) {
-                    String pollName = pollSnapshot.getKey().toString();
+                    String pollName = pollSnapshot.child("Election").getKey().toString();
                     pollNames.add(pollName);
                 }
                 displayPollNames();
@@ -71,7 +72,10 @@ public class ShowPollsActivity extends AppCompatActivity {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(ShowPollsActivity.this,HomeActivity.class ));
+                        Button button=(Button) v;
+                        String buttonTxt=button.getText().toString();
+                        ElectionName=buttonTxt;
+                        startActivity(new Intent(ShowPollsActivity.this,DisplayVoteCountActivity.class ));
                         // Handle button click
                         // You can perform any desired action here, such as navigating to a detail activity
                         // or starting the voting process for the selected poll
