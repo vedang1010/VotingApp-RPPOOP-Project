@@ -2,6 +2,8 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 import static com.example.myapplication.ShowPollsActivity.ElectionName;
+
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ public class VoteCandidateActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
     private String selectedElection;
+    private CheckBox lastCheckedCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +45,26 @@ public class VoteCandidateActivity extends AppCompatActivity {
                     // Create a new checkbox for the candidate
                     CheckBox checkBox = new CheckBox(VoteCandidateActivity.this);
                     checkBox.setText(candidateName);
-
                     // Add the checkbox to the layout
                     candidateLayout.addView(checkBox);
+                    checkBox.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            CheckBox clickedCheckBox = (CheckBox) v;
+                            if (clickedCheckBox.isChecked()) {
+                                // If the clicked checkbox is checked, uncheck the last checked checkbox
+                                if (lastCheckedCheckBox != null && lastCheckedCheckBox != clickedCheckBox) {
+                                    lastCheckedCheckBox.setChecked(false);
+                                }
+                                // Update the last checked checkbox
+                                lastCheckedCheckBox = clickedCheckBox;
+                            } else {
+                                // If the clicked checkbox is unchecked, clear the last checked checkbox
+                                lastCheckedCheckBox = null;
+                            }
+                        }
+                    });
+
                 }
             }
 
