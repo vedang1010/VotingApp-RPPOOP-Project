@@ -40,8 +40,8 @@ public class ShowPollsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 pollNames.clear();
-                for (DataSnapshot pollSnapshot : dataSnapshot.getChildren()) {
-                    String pollName = pollSnapshot.child("Election").getKey().toString();
+                for (DataSnapshot pollSnapshot : dataSnapshot.child("Election").getChildren()) {
+                    String pollName = pollSnapshot.getKey().toString();
                     pollNames.add(pollName);
                 }
                 displayPollNames();
