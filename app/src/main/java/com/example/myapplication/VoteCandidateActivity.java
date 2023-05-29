@@ -1,7 +1,9 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import static com.example.myapplication.ShowPollsActivity.ElectionName;
+import static com.example.myapplication.logInActivity.logedInUser;
 
 import android.view.View;
 import android.widget.Button;
@@ -97,6 +99,12 @@ public class VoteCandidateActivity extends AppCompatActivity {
                                             Integer currentVotes = snapshot.child("vote").getValue(Integer.class);
                                             DatabaseReference valueReference = snapshot.getRef();
                                             valueReference.child("vote").setValue(currentVotes+1);
+                                            Toast.makeText(VoteCandidateActivity.this, "Vote Registered Successfully!!", Toast.LENGTH_SHORT).show();
+
+                                            DatabaseReference userRef = databaseReference.child("Election").child(selectedElection).child("Voters");
+                                            userRef.child(logedInUser).setValue("voted");
+
+                                            startActivity(new Intent(VoteCandidateActivity.this , ShowPollsActivity.class));
                                         }
                                     }
                                 }
@@ -114,7 +122,6 @@ public class VoteCandidateActivity extends AppCompatActivity {
                 // Add the button to the layout
                 candidateLayout.addView(voteButton);
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(VoteCandidateActivity.this, "Database Error!", Toast.LENGTH_SHORT).show();
