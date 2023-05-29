@@ -22,6 +22,8 @@ public class VoteCandidateActivity extends AppCompatActivity {
     private String selectedElection;
     private CheckBox lastCheckedCheckBox;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,8 @@ public class VoteCandidateActivity extends AppCompatActivity {
                     // Create a new checkbox for the candidate
                     CheckBox checkBox = new CheckBox(VoteCandidateActivity.this);
                     checkBox.setText(candidateName);
+                    int padding = getResources().getDimensionPixelSize(R.dimen.checkbox_padding);
+                    checkBox.setPadding(17 , 10 , padding, padding);
                     // Add the checkbox to the layout
                     candidateLayout.addView(checkBox);
                     checkBox.setOnClickListener(new View.OnClickListener() {
