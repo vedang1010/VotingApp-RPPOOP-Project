@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -15,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
+import static com.example.myapplication.logInActivity.logedInUser;
 
 public class ShowPollsActivity extends AppCompatActivity {
     private ListView pollsListView;
@@ -75,7 +79,25 @@ public class ShowPollsActivity extends AppCompatActivity {
                         Button button=(Button) v;
                         String buttonTxt=button.getText().toString();
                         ElectionName=buttonTxt;
-                        startActivity(new Intent(ShowPollsActivity.this, VoteCandidateActivity.class ));
+
+                        DatabaseReference databaseReference1 = databaseReference.child("Election").child(ElectionName).child("Voters");
+                        databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.hasChild(logedInUser)){
+                                    Toast.makeText(ShowPollsActivity.this, "Already Voted!!", Toast.LENGTH_SHORT).show();
+                                }
+                                else {
+                                    startActivity(new Intent(ShowPollsActivity.this, VoteCandidateActivity.class ));
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
                         // Handle button click
                         // You can perform any desired action here, such as navigating to a detail activity
                         // or starting the voting process for the selected poll

@@ -1,9 +1,12 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import static com.example.myapplication.ShowPollsActivity.ElectionName;
+import static com.example.myapplication.logInActivity.logedInUser;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -48,7 +51,7 @@ public class VoteCandidateActivity extends AppCompatActivity {
                     CheckBox checkBox = new CheckBox(VoteCandidateActivity.this);
                     checkBox.setText(candidateName);
                     int padding = getResources().getDimensionPixelSize(R.dimen.checkbox_padding);
-                    checkBox.setPadding(17 , 10 , padding, padding);
+                    checkBox.setPadding(padding , padding , padding, padding);
                     // Add the checkbox to the layout
                     candidateLayout.addView(checkBox);
                     checkBox.setOnClickListener(new View.OnClickListener() {
@@ -70,8 +73,55 @@ public class VoteCandidateActivity extends AppCompatActivity {
                     });
 
                 }
-            }
+                Button voteButton = new Button(VoteCandidateActivity.this);
+                voteButton.setText("Vote");
+                voteButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (lastCheckedCheckBox != null) {
+                            String selectedCandidateName = lastCheckedCheckBox.getText().toString();
 
+
+                            // Find the selected candidate in the database and increment the vote count
+                            DatabaseReference candidateRef = databaseReference.child("Election")
+                                    .child(selectedElection)
+                                    .child("Candidates");
+//                                    .child(selectedCandidateName);
+                            candidateRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    // Increment the vote count by 1
+//                                    Integer currentVotes = dataSnapshot.getValue(Integer.class);
+//                                    candidateRef.child("vote").setValue(currentVotes + 1);
+//                                    Toast.makeText(VoteCandidateActivity.this, "Vote counted!", Toast.LENGTH_SHORT).show();
+                                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                                        if (snapshot.child("name").getValue().toString().equals(selectedCandidateName)){
+                                            Integer currentVotes = snapshot.child("vote").getValue(Integer.class);
+                                            DatabaseReference valueReference = snapshot.getRef();
+                                            valueReference.child("vote").setValue(currentVotes+1);
+                                            Toast.makeText(VoteCandidateActivity.this, "Vote Registered Successfully!!", Toast.LENGTH_SHORT).show();
+
+                                            DatabaseReference userRef = databaseReference.child("Election").child(selectedElection).child("Voters");
+                                            userRef.child(logedInUser).setValue("voted");
+
+                                            startActivity(new Intent(VoteCandidateActivity.this , ShowPollsActivity.class));
+                                        }
+                                    }
+                                }
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                    Toast.makeText(VoteCandidateActivity.this, "Failed to vote!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } else {
+                            Toast.makeText(VoteCandidateActivity.this, "Please select a candidate!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                // Add the button to the layout
+                candidateLayout.addView(voteButton);
+            }
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(VoteCandidateActivity.this, "Database Error!", Toast.LENGTH_SHORT).show();
