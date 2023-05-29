@@ -3,9 +3,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
+import static com.example.myapplication.logInActivity.logedInUser;
 
 public class HomeActivity extends AppCompatActivity {
-
+    public  static  String LU=logedInUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

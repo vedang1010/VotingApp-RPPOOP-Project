@@ -1,5 +1,5 @@
 package com.example.myapplication;
-
+import static com.example.myapplication.logInActivity.logedInUser;
 import android.content.Intent;
 import android.content.SyncStatusObserver;
 import android.os.Bundle;
@@ -125,6 +125,7 @@ public class CreatePollActivity extends AppCompatActivity {
                     ////////
 //                    databaseReference.child("Election").child(owner);
                     userReference.child("pollId").setValue(pollId);
+                    userReference.child("createdBy").setValue(logedInUser);
                     userReference.child("Candidates");
                     /////////
                     for (int i = 0; i < optionCount; i++) {

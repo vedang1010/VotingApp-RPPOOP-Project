@@ -18,11 +18,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AdminPage"
+            android:name=".AdminPolls"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".DisplayVoteCountActivity"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".AdminPage"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".DisplayVoteCountActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".PollAdmin"
             android:exported="false" />
