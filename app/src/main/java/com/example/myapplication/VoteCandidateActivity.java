@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import static com.example.myapplication.ShowPollsActivity.ElectionName;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -24,7 +25,7 @@ public class VoteCandidateActivity extends AppCompatActivity {
         setContentView(R.layout.vooting);
 
         // Get the selected election name from the previous activity or fragment
-        selectedElection = getIntent().getStringExtra("selectedElection");
+        selectedElection = ElectionName;
 
         databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
 
