@@ -45,11 +45,11 @@ public class AdminPolls extends AppCompatActivity {
                 pollNames.clear();
                 for (DataSnapshot pollSnapshot : dataSnapshot.child("Election").getChildren()) {
 //                    String ElectName=pollSnapshot.getKey().toString();
-//                    if (LogUser.equals(pollSnapshot.child("createdBy").getValue())) {
+                    if (LogUser.equals(pollSnapshot.child("createdBy").getValue())) {
                         String pollName = pollSnapshot.getKey().toString();
                         pollNames.add(pollName);
 //                        Toast.makeText(AdminPolls.this, "Added", Toast.LENGTH_SHORT).show();
-//                    }
+                    }
                 }
                 displayPollNames();
             }

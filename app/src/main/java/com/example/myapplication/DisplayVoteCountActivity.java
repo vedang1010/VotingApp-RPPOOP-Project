@@ -155,7 +155,7 @@ public class DisplayVoteCountActivity extends AppCompatActivity {
                         return c2.getVotes() - c1.getVotes();
                     }
                 });
-
+//                System.out.println(candidates);
                 displayCandidates();
             }
 
