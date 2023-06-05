@@ -78,24 +78,28 @@ public class VoteCandidateActivity extends AppCompatActivity {
                 voteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+//                        DatabaseReference voterSnap  = databaseReference.child("Election").child(selectedElection).child("Voters");
+
+
                         if (lastCheckedCheckBox != null) {
                             String selectedCandidateName = lastCheckedCheckBox.getText().toString();
 
 
                             // Find the selected candidate in the database and increment the vote count
                             DatabaseReference candidateRef = databaseReference.child("Election")
-                                    .child(selectedElection)
-                                    .child("Candidates");
+                                    .child(selectedElection);
+//                                    .child("Candidates");
 //                                    .child(selectedCandidateName);
                             candidateRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
+
                                     // Increment the vote count by 1
 //                                    Integer currentVotes = dataSnapshot.getValue(Integer.class);
 //                                    candidateRef.child("vote").setValue(currentVotes + 1);
 //                                    Toast.makeText(VoteCandidateActivity.this, "Vote counted!", Toast.LENGTH_SHORT).show();
-                                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                                        if (snapshot.child("name").getValue().toString().equals(selectedCandidateName)){
+                                    for (DataSnapshot snapshot : dataSnapshot.child("Candidates").getChildren()){
+                                        if (snapshot.child("name").getValue().toString().equals(selectedCandidateName) && !dataSnapshot.child("Voters").hasChild(logedInUser)){
                                             Integer currentVotes = snapshot.child("vote").getValue(Integer.class);
                                             DatabaseReference valueReference = snapshot.getRef();
                                             valueReference.child("vote").setValue(currentVotes+1);
@@ -104,6 +108,11 @@ public class VoteCandidateActivity extends AppCompatActivity {
                                             DatabaseReference userRef = databaseReference.child("Election").child(selectedElection).child("Voters");
                                             userRef.child(logedInUser).setValue("voted");
 
+//                                            Toast.makeText(VoteCandidateActivity.this, "Thank You For Voting!!", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(VoteCandidateActivity.this , logInActivity.class));
+                                        }
+                                        else if(dataSnapshot.child("Voters").hasChild(logedInUser)) {
+                                            Toast.makeText(VoteCandidateActivity.this, "You can't Vote again!!", Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(VoteCandidateActivity.this , ShowPollsActivity.class));
                                         }
                                     }
