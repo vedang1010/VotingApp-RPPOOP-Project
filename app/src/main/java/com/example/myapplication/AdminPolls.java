@@ -45,11 +45,11 @@ public class AdminPolls extends AppCompatActivity {
                 pollNames.clear();
                 for (DataSnapshot pollSnapshot : dataSnapshot.child("Election").getChildren()) {
 //                    String ElectName=pollSnapshot.getKey().toString();
-                    if (LogUser.equals(pollSnapshot.child("createdBy").getValue())) {
+//                    if (LogUser.equals(pollSnapshot.child("createdBy").getValue())) {
                         String pollName = pollSnapshot.getKey().toString();
                         pollNames.add(pollName);
-                        Toast.makeText(AdminPolls.this, "Addded", Toast.LENGTH_SHORT).show();
-                    }
+//                        Toast.makeText(AdminPolls.this, "Added", Toast.LENGTH_SHORT).show();
+//                    }
                 }
                 displayPollNames();
             }
@@ -76,17 +76,14 @@ public class AdminPolls extends AppCompatActivity {
 
                 final String pollName = getItem(position);
                 button.setText(pollName);
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Button button=(Button) v;
-                        String buttonTxt=button.getText().toString();
-                        ElectionName=buttonTxt;
-                        startActivity(new Intent(AdminPolls.this, DisplayVoteCountActivity.class ));
-                        // Handle button click
-                        // You can perform any desired action here, such as navigating to a detail activity
-                        // or starting the voting process for the selected poll
-                    }
+                button.setOnClickListener(v -> {
+                    Button button1 =(Button) v;
+                    String buttonTxt= button1.getText().toString();
+                    ElectionName=buttonTxt;
+                    startActivity(new Intent(AdminPolls.this, DisplayVoteCountActivity.class ));
+                    // Handle button click
+                    // You can perform any desired action here, such as navigating to a detail activity
+                    // or starting the voting process for the selected poll
                 });
 
                 return button;

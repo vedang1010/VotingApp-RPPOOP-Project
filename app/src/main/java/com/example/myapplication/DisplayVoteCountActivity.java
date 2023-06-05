@@ -142,8 +142,8 @@ public class DisplayVoteCountActivity extends AppCompatActivity {
                 for (DataSnapshot candidateSnapshot : dataSnapshot.getChildren()) {
 //                for (long i=0; i< dataSnapshot.getChildrenCount();i++) {
 //                    String s1=String.format("Candidates %d",i+1);
-                    String candidateName = dataSnapshot.child("name").getValue(String.class);
-                    int votes = dataSnapshot.child("vote").getValue(Integer.class);
+                    String candidateName = candidateSnapshot.child("name").getValue(String.class);
+                    int votes = candidateSnapshot.child("vote").getValue(Integer.class);
                     Candidate candidate = new Candidate(candidateName, votes);
                     candidates.add(candidate);
                 }
