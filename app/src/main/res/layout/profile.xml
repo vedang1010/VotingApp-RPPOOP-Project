@@ -3,20 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/img_7"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="310dp"
         android:layout_height="57dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="64dp"
         android:text="PROFILE"
         android:textAlignment="center"
-        android:textColor="#F8693C"
+        android:textColor="@color/profile_page"
         android:textSize="40sp"
+        android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,6 +42,7 @@
         android:drawableLeft="@drawable/ic_user"
         android:paddingTop="37dp"
         android:text="    Username"
+        android:textColor="@color/profile_page"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -54,6 +57,7 @@
         android:drawableLeft="@drawable/baseline_email_24"
         android:paddingTop="37dp"
         android:text="    Email"
+        android:textColor="@color/profile_page"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/username"
         app:layout_constraintTop_toBottomOf="@+id/username" />
@@ -66,6 +70,7 @@
         android:drawableLeft="@drawable/baseline_numbers_24"
         android:paddingTop="37dp"
         android:text="    College id"
+        android:textColor="@color/profile_page"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/email"
         app:layout_constraintTop_toBottomOf="@+id/email" />
