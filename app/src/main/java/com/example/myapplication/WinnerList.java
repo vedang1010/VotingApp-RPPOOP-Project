@@ -32,8 +32,9 @@ public class WinnerList extends AppCompatActivity {
         setContentView(R.layout.showpolls);
 
         // Initialize Firebase
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
+//        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+//        databaseReference = firebaseDatabase.getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
 
         // Initialize UI elements
         pollsListView = findViewById(R.id.polls_listview);
@@ -45,9 +46,9 @@ public class WinnerList extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 pollNames.clear();
                 for (DataSnapshot pollSnapshot : dataSnapshot.child("Election").getChildren()) {
-                    String end_election = pollSnapshot.child("endElection").getValue().toString();
-                    String end = "1";
-                    if (end.equals(end_election)) {
+                    int end_election = pollSnapshot.child("endElection").getValue(Integer.class);
+//                    String end = "1";
+                    if (end_election==1) {
                         String pollName = pollSnapshot.getKey().toString();
                         pollNames.add(pollName);
                     }
@@ -84,20 +85,20 @@ public class WinnerList extends AppCompatActivity {
                         String buttonTxt=button.getText().toString();
                         ElectionName=buttonTxt;
 
-                        DatabaseReference databaseReference1 = databaseReference.child("Election").child(ElectionName).child("Voters");
-                        databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                                    startActivity(new Intent(WinnerList.this, Winner.class ));
-
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
+//                        DatabaseReference databaseReference1 = databaseReference.child("Election").child(ElectionName).child("Voters");
+//                        databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                                    startActivity(new Intent(WinnerList.this, Winner.class ));
+//
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(@NonNull DatabaseError error) {
+//
+//                            }
+//                        });
 
                         // Handle button click
                         // You can perform any desired action here, such as navigating to a detail activity
