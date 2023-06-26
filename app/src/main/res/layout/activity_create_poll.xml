@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/img_5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreatePollActivity">
@@ -9,8 +10,9 @@
         android:id="@+id/questionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Elction Name:"
-        android:textSize="18sp"
+        android:text="Election Name:"
+        android:textColor="@color/white"
+        android:textSize="23sp"
         android:textStyle="bold" />
 
     <EditText
@@ -20,6 +22,7 @@
         android:layout_below="@id/questionLabel"
         android:layout_marginTop="8dp"
         android:hint="Enter Election Name"
+        android:textColorHint="@color/white"
         android:inputType="text" />
 
     <TextView
@@ -29,7 +32,8 @@
         android:layout_below="@id/questionEditText"
         android:layout_marginTop="16dp"
         android:text="Candidates:"
-        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textSize="23sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -41,18 +45,22 @@
 
     <Button
         android:id="@+id/addOptionButton"
-        android:layout_width="wrap_content"
+        android:layout_width="124dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/optionsLayout"
-        android:layout_marginTop="16dp"
-        android:text="Add Candidate" />
+        android:layout_marginTop="23dp"
+        android:background="#09008A"
+        android:text="Add Candidate"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/createPollButton"
-        android:layout_width="wrap_content"
+        android:layout_width="127dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/addOptionButton"
-        android:layout_marginTop="16dp"
-        android:text="Create Poll" />
+        android:layout_marginTop="23dp"
+        android:background="#09008A"
+        android:text="Create Poll"
+        android:textColor="@color/white" />
 
 </RelativeLayout>
