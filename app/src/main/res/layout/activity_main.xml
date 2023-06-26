@@ -44,7 +44,7 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
-        <ImageView
+         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="272dp"
             android:layout_height="279dp"
