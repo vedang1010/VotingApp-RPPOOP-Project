@@ -80,6 +80,7 @@ public class CreatePollActivity extends AppCompatActivity {
 
         Button deleteButton = new Button(this);
         deleteButton.setText("Delete");
+
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

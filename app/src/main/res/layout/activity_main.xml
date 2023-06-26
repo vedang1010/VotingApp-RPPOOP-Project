@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_intro"
@@ -21,7 +22,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="75dp"
+            android:layout_marginStart="76dp"
             android:layout_marginTop="63dp"
             android:layout_marginEnd="75dp"
             android:paddingStart="22dp"
@@ -34,26 +35,26 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="224dp"
             android:layout_below="@+id/textView"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="70dp"
-            app:srcCompat="@drawable/image" />
+            android:layout_marginStart="83dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="78dp"
+            app:srcCompat="@drawable/front_img" />
 
         <Button
             android:id="@+id/button"
             style="@android:style/Widget.Button"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="45dp"
             android:layout_below="@+id/imageView2"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="52dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="59dp"
             android:background="@drawable/background_btn_intro1"
             android:onClick="openLogin"
             android:text="@string/signin"
@@ -69,9 +70,9 @@
             android:layout_below="@+id/button"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="59dp"
             android:background="@drawable/background_btn_intro1"
             android:onClick="openSignUp"
             android:text="Sign Up"
@@ -79,16 +80,16 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical"/>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:orientation="vertical"/>-->
 
     </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

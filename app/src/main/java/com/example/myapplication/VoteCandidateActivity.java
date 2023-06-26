@@ -115,7 +115,7 @@ public class VoteCandidateActivity extends AppCompatActivity {
                                             Toast.makeText(VoteCandidateActivity.this, "You can't Vote again!!", Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(VoteCandidateActivity.this , ShowPollsActivity.class));
                                         }
-                                    }
+                                                                                                                                                                                                                                                   }
                                 }
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
