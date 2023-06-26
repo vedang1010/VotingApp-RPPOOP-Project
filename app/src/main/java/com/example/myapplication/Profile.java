@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import static com.example.myapplication.logInActivity.logedInUser;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +28,7 @@ public class Profile extends AppCompatActivity {
     private ImageView videoImageView, twitterImageView;
 //    private String email, password;
     private FirebaseDatabase database;
-    private DatabaseReference userRef;
+    private DatabaseReference databaseReference;
     private static final String USER = "users";
 
     String pass;
@@ -37,21 +38,24 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
-        Intent intent = getIntent();
-        pass = intent.getStringExtra("password");
+//        Intent intent = getIntent();
+//        pass = intent.getStringExtra("password");
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
 
         nameTextView = findViewById(R.id.username);
         idTextView = findViewById(R.id.collegeid);
         emailTextView = findViewById(R.id.email);
 
-        database = FirebaseDatabase.getInstance();
-        userRef = database.getReference(USER);
+//        database = FirebaseDatabase.getInstance();
+//        userRef = database.getReference(USER);
 
-        userRef.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds: snapshot.getChildren()){
-                    if (ds.child("password").getValue().equals(pass)){
+                for (DataSnapshot ds: snapshot.child("users").getChildren()){
+                    if (logedInUser.equals(ds.getKey())){
                         nameTextView.setText(ds.child("fullname").getValue(String.class));
                         emailTextView.setText(ds.child("email").getValue(String.class));
                         idTextView.setText(ds.child("collegeid").getValue(String.class));

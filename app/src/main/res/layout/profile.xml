@@ -36,9 +36,10 @@
         android:id="@+id/username"
         android:layout_width="254dp"
         android:layout_height="65dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:drawableLeft="@drawable/ic_user"
-        android:text="@string/Username"
+        android:paddingTop="40dp"
+        android:text="   Username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,9 +49,10 @@
         android:id="@+id/email"
         android:layout_width="254dp"
         android:layout_height="65dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/baseline_email_24"
-        android:text="Email"
+        android:paddingTop="40dp"
+        android:text="   Email"
         app:layout_constraintStart_toStartOf="@+id/username"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
@@ -58,9 +60,10 @@
         android:id="@+id/collegeid"
         android:layout_width="254dp"
         android:layout_height="65dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/baseline_numbers_24"
-        android:text="College id"
+        android:paddingTop="40dp"
+        android:text="   College id"
         app:layout_constraintStart_toStartOf="@+id/email"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
