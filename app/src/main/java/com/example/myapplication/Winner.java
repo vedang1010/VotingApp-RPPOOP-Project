@@ -61,6 +61,7 @@ public class Winner extends AppCompatActivity {
             }
 
             @Override
+
             public void onCancelled(DatabaseError databaseError) {
                 // Handle error
             }
