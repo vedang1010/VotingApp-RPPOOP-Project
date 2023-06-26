@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom_button_main2"
     android:hapticFeedbackEnabled="false"
     tools:context=".MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_btn_intro1"
+        android:background="@drawable/img_5"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="-16dp">
 
         <TextView
             android:id="@+id/textView"
@@ -24,10 +25,12 @@
             android:layout_marginStart="84dp"
             android:layout_marginTop="72dp"
             android:layout_marginEnd="85dp"
+            android:fontFamily="@font/archivo_black"
             android:text="LOGIN"
             android:textAlignment="center"
-            android:textColor="#F8693C"
-            android:textSize="48sp" />
+            android:textColor="#030929"
+            android:textSize="48sp"
+            android:textStyle="normal" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -53,6 +56,7 @@
             android:layout_marginTop="41dp"
             android:layout_marginEnd="128dp"
             android:background="@drawable/btn_orange"
+            android:backgroundTint="#030929"
             android:text="@string/signin"
             android:textColor="#EFECE6"
             android:textSize="24sp"
@@ -60,7 +64,7 @@
 
         <EditText
             android:id="@+id/username2"
-            android:drawableRight="@drawable/ic_user"
+            style="@style/ButtonForMain2"
             android:layout_width="227dp"
             android:layout_height="52dp"
             android:layout_below="@+id/imageView2"
@@ -69,16 +73,19 @@
             android:layout_marginStart="108dp"
             android:layout_marginTop="45dp"
             android:layout_marginEnd="76dp"
-            android:background="@drawable/editor_background"
+            android:background="@drawable/custom_button_main2"
+            android:drawableRight="@drawable/ic_user"
+            android:drawableTint="#F4F3F3"
             android:ems="10"
             android:hint="@string/username"
             android:inputType="textPersonName"
-            android:paddingStart="10dp" />
+            android:paddingStart="10dp"
+            android:textColor="#DDD5D5"
+            android:textColorHint="#DDD5D5" />
 
         <EditText
             android:id="@+id/password2"
-            android:drawableRight="@drawable/ic_baseline_lock_24"
-            android:layout_width="229dp"
+            android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_below="@+id/username2"
             android:layout_alignParentStart="true"
@@ -86,11 +93,15 @@
             android:layout_marginStart="107dp"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="75dp"
-            android:background="@drawable/editor_background"
+            android:background="@drawable/custom_button_main2"
+            android:drawableRight="@drawable/ic_baseline_lock_24"
+            android:drawableTint="#F1E8E8"
             android:ems="10"
             android:hint="@string/pass"
             android:inputType="textPassword"
-            android:paddingStart="10dp" />
+            android:paddingStart="10dp"
+            android:textColor="#DDD5D5"
+            android:textColorHint="#DDD5D5" />
 
     </RelativeLayout>
 

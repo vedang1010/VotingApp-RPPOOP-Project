@@ -7,4 +7,7 @@
     <style name="ButtonForMain" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/custom_button_main</item>
     </style>
+    <style name="ButtonForMain2" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/custom_button_main2</item>
+    </style>
 </resources>
