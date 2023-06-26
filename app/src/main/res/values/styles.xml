@@ -4,4 +4,7 @@
         <item name="android:background">@drawable/custom_button_background</item>
         <!-- Add other button attributes here if needed -->
     </style>
+    <style name="ButtonForMain" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/custom_button_main</item>
+    </style>
 </resources>
