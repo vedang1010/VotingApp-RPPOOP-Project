@@ -16,7 +16,7 @@
         android:layout_marginEnd="10dp"
         android:text="WINNERS"
         android:textAlignment="center"
-        android:textColor="#2338AC"
+        android:textColor="#F4F5FB"
         android:textSize="40sp"
         android:textStyle="bold" />
 
@@ -32,7 +32,8 @@
         android:layout_marginEnd="-8dp"
         android:hint="Candidate Name"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F1F0F0"
+        android:textColorHint="#F6F3F3"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -43,12 +44,13 @@
         android:layout_below="@+id/winnerNameTextView"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="43dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="40dp"
         android:hint="Election Name"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#F6F3F3"
+        android:textColorHint="#F6F3F3"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -62,7 +64,9 @@
         android:layout_marginEnd="94dp"
         android:hint="Vote count"
         android:textAlignment="center"
-        android:textColor="#808080"
-        android:textSize="24sp" />
+        android:textColor="#FBF8F8"
+        android:textColorHint="#F6F3F3"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
