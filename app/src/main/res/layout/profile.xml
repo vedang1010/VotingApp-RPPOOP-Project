@@ -34,12 +34,13 @@
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="254dp"
+        android:layout_width="320dp"
         android:layout_height="65dp"
         android:layout_marginTop="40dp"
         android:drawableLeft="@drawable/ic_user"
-        android:paddingTop="40dp"
-        android:text="   Username"
+        android:paddingTop="37dp"
+        android:text="    Username"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,23 +48,25 @@
 
     <TextView
         android:id="@+id/email"
-        android:layout_width="254dp"
+        android:layout_width="320dp"
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/baseline_email_24"
-        android:paddingTop="40dp"
-        android:text="   Email"
+        android:paddingTop="37dp"
+        android:text="    Email"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/username"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <TextView
         android:id="@+id/collegeid"
-        android:layout_width="254dp"
+        android:layout_width="320dp"
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/baseline_numbers_24"
-        android:paddingTop="40dp"
-        android:text="   College id"
+        android:paddingTop="37dp"
+        android:text="    College id"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/email"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
