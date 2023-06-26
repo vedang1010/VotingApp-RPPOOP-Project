@@ -7,17 +7,19 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import static com.example.myapplication.logInActivity.logedInUser;
 
 public class WinnerList extends AppCompatActivity {
@@ -32,8 +34,6 @@ public class WinnerList extends AppCompatActivity {
         setContentView(R.layout.showpolls);
 
         // Initialize Firebase
-//        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-//        databaseReference = firebaseDatabase.getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
 
         // Initialize UI elements
@@ -47,10 +47,10 @@ public class WinnerList extends AppCompatActivity {
                 pollNames.clear();
                 for (DataSnapshot pollSnapshot : dataSnapshot.child("Election").getChildren()) {
                     int end_election = pollSnapshot.child("endElection").getValue(Integer.class);
-//                    String end = "1";
-                    if (end_election==1) {
+                    if (end_election == 1) {
                         String pollName = pollSnapshot.getKey().toString();
                         pollNames.add(pollName);
+
                     }
                 }
                 displayPollNames();
@@ -81,22 +81,22 @@ public class WinnerList extends AppCompatActivity {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Button button=(Button) v;
-                        String buttonTxt=button.getText().toString();
-                        ElectionName=buttonTxt;
+                        Button button = (Button) v;
+                        ElectionName = button.getText().toString();
+                        System.out.println(ElectionName);
 
-//                        DatabaseReference databaseReference1 = databaseReference.child("Election").child(ElectionName).child("Voters");
+//                        DatabaseReference databaseReference1 = databaseReference.child("Election").child(ElectionName).child("Candidates");
+                        Intent intent =new Intent(WinnerList.this,Winner.class);
+                        startActivity(intent);
 //                        databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
 //                            @Override
 //                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                                    startActivity(new Intent(WinnerList.this, Winner.class ));
-//
+//                                startActivity(new Intent(WinnerList.this, Winner.class));
 //                            }
 //
 //                            @Override
 //                            public void onCancelled(@NonNull DatabaseError error) {
-//
+//                                // Handle database error
 //                            }
 //                        });
 
