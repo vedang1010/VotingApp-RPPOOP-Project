@@ -27,6 +27,10 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent3 = new Intent(this, Profile.class);
         startActivity(intent3);
     }
+    public void gotoWinners(View view) {
+        Intent intent4 = new Intent(this, WinnerList.class);
+        startActivity(intent4);
+    }
 }
 //    @Override
 //    public void onBackPressed() {

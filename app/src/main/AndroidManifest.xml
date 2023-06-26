@@ -18,6 +18,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".WinnerList"
+            android:exported="false" />
+        <activity
+            android:name=".Winner"
+            android:exported="false" />
+        <activity
             android:name=".AdminPolls"
             android:exported="false" />
         <activity

@@ -29,7 +29,7 @@
             android:paddingEnd="22dp"
             android:text="Welcome"
             android:textColor="#FFFFFF"
-            android:textSize="48sp"
+            android:textSize="42sp"
             android:textStyle="bold" />
 
         <ImageView

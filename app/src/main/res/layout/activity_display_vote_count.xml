@@ -10,11 +10,13 @@
         android:id="@+id/title_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Voting Results"
+        android:text="Voting"
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginBottom="16dp"/>
+
+
 
     <ListView
         android:id="@+id/candidates_listview"
@@ -23,6 +25,14 @@
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp"/>
+        android:paddingBottom="8dp">
 
+    </ListView>
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:onClick="EndVoting"
+        android:text="END ELECTION!!!" />
 </LinearLayout>
