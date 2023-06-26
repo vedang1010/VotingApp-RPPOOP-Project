@@ -25,10 +25,23 @@
             android:id="@+id/button5"
             android:layout_width="156dp"
             android:layout_height="135dp"
-            android:layout_marginTop="252dp"
+            android:layout_marginTop="256dp"
             android:onClick="gotoProfile"
             android:text="PROFILE"
             app:layout_constraintEnd_toEndOf="@+id/button4"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/button3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="156dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="256dp"
+            android:onClick="gotoWinners"
+            android:text="RESULT"
+            app:layout_constraintEnd_toEndOf="@+id/button4"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/button3"
             app:layout_constraintTop_toTopOf="parent" />
 

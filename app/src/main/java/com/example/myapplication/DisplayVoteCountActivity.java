@@ -96,10 +96,12 @@ package com.example.myapplication;//package com.example.myapplication;
 //        candidatesListView.setAdapter(adapter);
 //    }
 //}
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -121,7 +123,9 @@ public class DisplayVoteCountActivity extends AppCompatActivity {
 //    public static String ElectionName;
     private DatabaseReference databaseReference;
 
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_vote_count);
@@ -137,6 +141,7 @@ public class DisplayVoteCountActivity extends AppCompatActivity {
         // Retrieve candidate names and votes from the database
         databaseReference.child("Election").child(ElectionName).child("Candidates").addValueEventListener(new ValueEventListener() {
             @Override
+
             public void onDataChange(@NonNull DataSnapshot dataSnapshot){
                 candidates.clear();
                 for (DataSnapshot candidateSnapshot : dataSnapshot.getChildren()) {
@@ -164,8 +169,13 @@ public class DisplayVoteCountActivity extends AppCompatActivity {
                 // Handle database error
             }
         });
-    }
 
+    }
+    public void EndVoting(View view){
+        databaseReference.child("Election").child(ElectionName).child("endElection").setValue(1);
+        Intent intent2 = new Intent(this, DisplayVoteCountActivity.class);
+        startActivity(intent2);
+    }
     private void displayCandidates() {
         List<String> candidateInfoList = new ArrayList<>();
         for (Candidate candidate : candidates) {

@@ -126,6 +126,7 @@ public class CreatePollActivity extends AppCompatActivity {
                     ////////
 //                    databaseReference.child("Election").child(owner);
                     userReference.child("pollId").setValue(pollId);
+                    userReference.child("endElection").setValue(0);
                     userReference.child("createdBy").setValue(logedInUser);
                     userReference.child("Candidates");
                     /////////
