@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import static com.example.myapplication.ShowPollsActivity.ElectionName;
 import static com.example.myapplication.logInActivity.logedInUser;
@@ -54,6 +55,8 @@ public class VoteCandidateActivity extends AppCompatActivity {
                     checkBox.setPadding(padding , padding , padding, padding);
                     // Add the checkbox to the layout
                     candidateLayout.addView(checkBox);
+                    checkBox.setTextColor(Color.WHITE);
+//                    checkBox.setBackgroundColor(Color.WHITE);
                     checkBox.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
