@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,7 @@ public class ShowPollsActivity extends AppCompatActivity {
                     button = new Button(getContext());
                     button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     button.setPadding(16, 16, 16, 16);
+                    button.setBackgroundColor(Color.parseColor("#09008A"));
                 } else {
                     button = (Button) convertView;
                 }
@@ -80,15 +82,20 @@ public class ShowPollsActivity extends AppCompatActivity {
                         String buttonTxt=button.getText().toString();
                         ElectionName=buttonTxt;
 
-                        DatabaseReference databaseReference1 = databaseReference.child("Election").child(ElectionName).child("Voters");
+                        DatabaseReference databaseReference1 = databaseReference.child("Election").child(ElectionName);
                         databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if (snapshot.hasChild(logedInUser)){
-                                    Toast.makeText(ShowPollsActivity.this, "Already Voted!!", Toast.LENGTH_SHORT).show();
+                                int val = snapshot.child("endEkection").getValue(Integer.class);
+                                if (val != 1) {
+                                    if (snapshot.child("Voters").hasChild(logedInUser)) {
+                                        Toast.makeText(ShowPollsActivity.this, "Already Voted!!", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        startActivity(new Intent(ShowPollsActivity.this, VoteCandidateActivity.class));
+                                    }
                                 }
                                 else {
-                                    startActivity(new Intent(ShowPollsActivity.this, VoteCandidateActivity.class ));
+                                    Toast.makeText(ShowPollsActivity.this, "Election has ended!!", Toast.LENGTH_SHORT).show();
                                 }
                             }
 
