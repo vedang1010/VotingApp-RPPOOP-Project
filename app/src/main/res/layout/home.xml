@@ -91,11 +91,11 @@
 
         <TextView
             android:id="@+id/userIn"
-            android:layout_width="167dp"
-            android:layout_height="37dp"
+            android:layout_width="159dp"
+            android:layout_height="50dp"
             android:text="User"
-            android:textSize="33sp"
             android:textColor="@color/white"
+            android:textSize="33sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5"

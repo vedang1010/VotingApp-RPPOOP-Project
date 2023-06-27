@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/list_back2"
     android:orientation="vertical"
     android:padding="16dp">
 
     <ListView
         android:id="@+id/polls_listview"
+        android:background="@drawable/list_back2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@android:layout/simple_list_item_1" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,8 @@ public class WinnerList extends AppCompatActivity {
                     button = new Button(getContext());
                     button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     button.setPadding(16, 16, 16, 16);
+                    button.setTextColor(Color.BLACK);
+                    button.setHintTextColor(Color.BLACK);
                 } else {
                     button = (Button) convertView;
                 }

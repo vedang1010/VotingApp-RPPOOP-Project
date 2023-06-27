@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/list_back2"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -10,6 +11,7 @@
         android:id="@+id/polls_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/list_back2"
         tools:listitem="@android:layout/simple_list_item_1" />
 
 </LinearLayout>
