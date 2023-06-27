@@ -86,7 +86,7 @@ public class ShowPollsActivity extends AppCompatActivity {
                         databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                int val = snapshot.child("endEkection").getValue(Integer.class);
+                                int val = snapshot.child("endElection").getValue(Integer.class);
                                 if (val != 1) {
                                     if (snapshot.child("Voters").hasChild(logedInUser)) {
                                         Toast.makeText(ShowPollsActivity.this, "Already Voted!!", Toast.LENGTH_SHORT).show();
