@@ -78,6 +78,8 @@ public class VoteCandidateActivity extends AppCompatActivity {
                 }
                 Button voteButton = new Button(VoteCandidateActivity.this);
                 voteButton.setText("Vote");
+                voteButton.setBackgroundColor(Color.BLACK);
+                voteButton.setTextColor(Color.WHITE);
                 voteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
