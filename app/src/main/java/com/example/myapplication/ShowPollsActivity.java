@@ -68,7 +68,7 @@ public class ShowPollsActivity extends AppCompatActivity {
                     button = new Button(getContext());
                     button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     button.setPadding(16, 16, 16, 16);
-                    button.setBackgroundColor(Color.parseColor("#09008A"));
+                    button.setBackgroundColor(Color.parseColor("#ffffff"));
                 } else {
                     button = (Button) convertView;
                 }
