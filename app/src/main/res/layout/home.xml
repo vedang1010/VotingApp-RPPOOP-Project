@@ -11,23 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="148dp"
-            android:layout_height="127dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="260dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:onClick="gotoAdmin"
-            android:text="ADMIN"
-            app:layout_constraintEnd_toStartOf="@+id/button4"
-            app:layout_constraintHorizontal_bias="0.156"
-            app:layout_constraintStart_toStartOf="parent"
-            style="@style/ButtonStyle"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <!-- <Button
             android:id="@+id/button5"
             android:layout_width="148dp"
@@ -46,34 +29,49 @@
             app:layout_constraintVertical_bias="0.0" /> -->
 
         <Button
+            android:id="@+id/button3"
+            style="@style/ButtonStyle"
+            android:layout_width="148dp"
+            android:layout_height="127dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="252dp"
+            android:onClick="gotoAdmin"
+            android:text="ADMIN"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
             android:id="@+id/button10"
+            style="@style/ButtonStyle"
             android:layout_width="148dp"
             android:layout_height="127dp"
             android:layout_marginTop="56dp"
             android:onClick="gotoWinners"
             android:text="RESULT"
             android:textColor="@color/white"
-            android:textStyle="bold"
             android:textSize="20dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/button3"
             app:layout_constraintTop_toBottomOf="@+id/button3"
-            style="@style/ButtonStyle"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="30dp" />
 
         <Button
             android:id="@+id/button4"
+            style="@style/ButtonStyle"
             android:layout_width="148dp"
             android:layout_height="127dp"
-            android:layout_marginTop="260dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginTop="440dp"
+            android:layout_marginEnd="28dp"
             android:onClick="gotoShowPolls"
             android:text="SHOW AVAILABLE POLLS"
             android:textColor="@color/white"
-            android:textStyle="bold"
             android:textSize="20dp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            style="@style/ButtonStyle"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
