@@ -13,19 +13,20 @@
 
         <Button
             android:id="@+id/button5"
+            style="@style/ButtonStyle"
             android:layout_width="148dp"
             android:layout_height="127dp"
             android:layout_marginTop="56dp"
+            android:layout_marginEnd="40dp"
             android:onClick="gotoProfile"
             android:text="PROFILE"
             android:textColor="@color/white"
-            android:textStyle="bold"
             android:textSize="20dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/button4"
-            app:layout_constraintTop_toBottomOf="@+id/button4"
-            style="@style/ButtonStyle"
+            app:layout_constraintEnd_toEndOf="parent"
 
+            app:layout_constraintTop_toBottomOf="@+id/button4"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
@@ -33,8 +34,8 @@
             style="@style/ButtonStyle"
             android:layout_width="148dp"
             android:layout_height="127dp"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="252dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="244dp"
             android:onClick="gotoAdmin"
             android:text="ADMIN"
             android:textColor="@color/white"
@@ -48,6 +49,7 @@
             style="@style/ButtonStyle"
             android:layout_width="148dp"
             android:layout_height="127dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="56dp"
             android:onClick="gotoWinners"
             android:text="RESULT"
@@ -55,17 +57,20 @@
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button5"
+            app:layout_constraintHorizontal_bias="0.032"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button3"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="30dp" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/button4"
             style="@style/ButtonStyle"
             android:layout_width="148dp"
             android:layout_height="127dp"
-            android:layout_marginTop="440dp"
-            android:layout_marginEnd="28dp"
+            android:layout_marginTop="244dp"
+            android:layout_marginEnd="40dp"
+            android:gravity="center_horizontal|center_vertical"
             android:onClick="gotoShowPolls"
             android:text="SHOW AVAILABLE POLLS"
             android:textColor="@color/white"
@@ -76,27 +81,31 @@
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="169dp"
-            android:layout_height="47dp"
-            android:layout_marginTop="72dp"
+            android:layout_width="172dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="76dp"
             android:text="Welcome"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="33sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.123"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/userIn"
-            android:layout_width="159dp"
-            android:layout_height="50dp"
+            android:layout_width="172dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="28dp"
             android:text="User"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="33sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView5"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.188" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

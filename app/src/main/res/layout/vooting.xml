@@ -26,10 +26,10 @@
 
     <LinearLayout
         android:id="@+id/CandidateLayout"
-        android:layout_width="285dp"
-        android:layout_height="652dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="60dp"
+        android:layout_width="277dp"
+        android:layout_height="515dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="64dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"></LinearLayout>
