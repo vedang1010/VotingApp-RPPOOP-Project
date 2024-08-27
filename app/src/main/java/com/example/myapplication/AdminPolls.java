@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import static com.example.myapplication.AdminPage.LogUser;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,16 +7,18 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.myapplication.logInActivity.logedInUser;
 
 public class AdminPolls extends AppCompatActivity {
     private ListView pollsListView;
@@ -44,11 +45,9 @@ public class AdminPolls extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 pollNames.clear();
                 for (DataSnapshot pollSnapshot : dataSnapshot.child("Election").getChildren()) {
-//                    String ElectName=pollSnapshot.getKey().toString();
-                    if (LogUser.equals(pollSnapshot.child("createdBy").getValue())) {
-                        String pollName = pollSnapshot.getKey().toString();
+                    if (logedInUser != null && logedInUser.equals(pollSnapshot.child("createdBy").getValue(String.class))) {
+                        String pollName = pollSnapshot.getKey();
                         pollNames.add(pollName);
-//                        Toast.makeText(AdminPolls.this, "Added", Toast.LENGTH_SHORT).show();
                     }
                 }
                 displayPollNames();
@@ -77,13 +76,8 @@ public class AdminPolls extends AppCompatActivity {
                 final String pollName = getItem(position);
                 button.setText(pollName);
                 button.setOnClickListener(v -> {
-                    Button button1 =(Button) v;
-                    String buttonTxt= button1.getText().toString();
-                    ElectionName=buttonTxt;
-                    startActivity(new Intent(AdminPolls.this, DisplayVoteCountActivity.class ));
-                    // Handle button click
-                    // You can perform any desired action here, such as navigating to a detail activity
-                    // or starting the voting process for the selected poll
+                    ElectionName = pollName;
+                    startActivity(new Intent(AdminPolls.this, DisplayVoteCountActivity.class));
                 });
 
                 return button;

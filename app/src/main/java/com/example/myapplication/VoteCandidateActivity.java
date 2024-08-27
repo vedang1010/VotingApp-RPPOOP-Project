@@ -115,6 +115,7 @@ public class VoteCandidateActivity extends AppCompatActivity {
 
 //                                            Toast.makeText(VoteCandidateActivity.this, "Thank You For Voting!!", Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(VoteCandidateActivity.this , logInActivity.class));
+                                            finish();
                                         }
                                         else if(dataSnapshot.child("Voters").hasChild(logedInUser)) {
                                             Toast.makeText(VoteCandidateActivity.this, "You can't Vote again!!", Toast.LENGTH_SHORT).show();

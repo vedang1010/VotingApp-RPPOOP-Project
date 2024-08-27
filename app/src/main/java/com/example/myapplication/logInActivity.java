@@ -17,9 +17,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class logInActivity extends AppCompatActivity {
-    String user,pass;
+    String user, pass;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://login-register-3e247-default-rtdb.firebaseio.com/");
     public static String logedInUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,14 +29,15 @@ public class logInActivity extends AppCompatActivity {
         final EditText username = findViewById(R.id.username2);
         final EditText password = findViewById(R.id.password2);
         final Button loginBtn = findViewById(R.id.buttonSignUp);
-//        final EditText collegeid = findViewById(R.id.collegeid);
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String usernameTxt = username.getText().toString();
                 final String passwordTxt = password.getText().toString();
-                user=usernameTxt;
-                pass=passwordTxt;
+                user = usernameTxt;
+                pass = passwordTxt;
+
                 if (usernameTxt.isEmpty() || passwordTxt.isEmpty()) {
                     Toast.makeText(logInActivity.this, "Please Enter your username or password", Toast.LENGTH_SHORT).show();
                 } else {
@@ -46,13 +48,16 @@ public class logInActivity extends AppCompatActivity {
                                 final String getPassword = snapshot.child(usernameTxt).child("password").getValue(String.class);
 
                                 if (getPassword.equals(passwordTxt)) {
-                                    logedInUser= usernameTxt;
+                                    logedInUser = usernameTxt; // Set the global variable to the current user
                                     Toast.makeText(logInActivity.this, "Successfully Logged In", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(logInActivity.this,HomeActivity.class ));
-                                    finish();
+
+                                    // Start the HomeActivity and ensure previous user data is cleared
+                                    Intent intent = new Intent(logInActivity.this, HomeActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                    finish(); // Close the login activity
                                 } else {
                                     Toast.makeText(logInActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
-
                                 }
                             } else {
                                 Toast.makeText(logInActivity.this, "Wrong Username", Toast.LENGTH_SHORT).show();
@@ -67,12 +72,5 @@ public class logInActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
-//    public void
 }
-//    public void gotoHome(View view){
-//        Intent intent = new Intent(this,HomeActivity.class);
-//        startActivity(intent);
-//    }
-//}

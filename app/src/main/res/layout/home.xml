@@ -11,101 +11,127 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/button5"
-            style="@style/ButtonStyle"
-            android:layout_width="148dp"
-            android:layout_height="127dp"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="40dp"
-            android:onClick="gotoProfile"
-            android:text="PROFILE"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintTop_toBottomOf="@+id/button4"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/button3"
-            style="@style/ButtonStyle"
-            android:layout_width="148dp"
-            android:layout_height="127dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="244dp"
-            android:onClick="gotoAdmin"
-            android:text="ADMIN"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button10"
-            style="@style/ButtonStyle"
-            android:layout_width="148dp"
-            android:layout_height="127dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="56dp"
-            android:onClick="gotoWinners"
-            android:text="RESULT"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button5"
-            app:layout_constraintHorizontal_bias="0.032"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/button4"
-            style="@style/ButtonStyle"
-            android:layout_width="148dp"
-            android:layout_height="127dp"
-            android:layout_marginTop="244dp"
-            android:layout_marginEnd="40dp"
-            android:gravity="center_horizontal|center_vertical"
-            android:onClick="gotoShowPolls"
-            android:text="SHOW AVAILABLE POLLS"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+        <!-- Header TextView -->
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="172dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="76dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Welcome"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="33sp"
+            android:textSize="36sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.123"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="32dp"/>
 
+        <!-- User TextView -->
         <TextView
             android:id="@+id/userIn"
-            android:layout_width="172dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="28dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="User"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="33sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.188" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Show Polls Button -->
+        <Button
+            android:id="@+id/button4"
+            style="@style/ButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="SHOW AVAILABLE POLLS"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:onClick="gotoShowPolls"
+            app:layout_constraintTop_toBottomOf="@+id/userIn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Result Button -->
+        <Button
+            android:id="@+id/button10"
+            style="@style/ButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="RESULT"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:onClick="gotoWinners"
+            app:layout_constraintTop_toBottomOf="@+id/button4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Admin Button -->
+        <Button
+            android:id="@+id/button3"
+            style="@style/ButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="ADMIN"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:onClick="gotoAdmin"
+            app:layout_constraintTop_toBottomOf="@+id/button10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Profile Button -->
+        <Button
+            android:id="@+id/button5"
+            style="@style/ButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="PROFILE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:onClick="gotoProfile"
+            app:layout_constraintBottom_toTopOf="@+id/logoutButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"/>
+
+        <!-- Logout Button -->
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/custom_button_background"
+            android:textSize="18sp"
+            android:onClick="logoutUser"
+            android:text="Logout"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

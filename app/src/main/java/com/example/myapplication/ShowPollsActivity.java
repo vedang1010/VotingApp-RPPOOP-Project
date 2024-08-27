@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.graphics.Typeface;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,8 +47,12 @@ public class ShowPollsActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 pollNames.clear();
                 for (DataSnapshot pollSnapshot : dataSnapshot.child("Election").getChildren()) {
+                    int val = pollSnapshot.child("endElection").getValue(Integer.class);
                     String pollName = pollSnapshot.getKey().toString();
-                    pollNames.add(pollName);
+
+                    if(val!=1) {
+                        pollNames.add(pollName);
+                    }
                 }
                 displayPollNames();
             }
@@ -68,20 +73,54 @@ public class ShowPollsActivity extends AppCompatActivity {
                     button = new Button(getContext());
                     button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     button.setPadding(16, 16, 16, 16);
-                    button.setBackgroundColor(Color.parseColor("#ffffff"));
+                    button.setTextColor(Color.WHITE); // Set text color
+                    button.setTextSize(18); // Set text size
+                    button.setTextAlignment(View.TEXT_ALIGNMENT_CENTER); // Center align text
+                    button.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD)); // Set bold text
+                    // Create LayoutParams with margins
+                    ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                    );
+                    params.setMargins(46, 46, 46, 46); // Set margins: left, top, right, bottom
+                    button.setLayoutParams(params);
                 } else {
                     button = (Button) convertView;
                 }
 
                 final String pollName = getItem(position);
                 button.setText(pollName);
+
+                // Determine the background based on whether the user has voted
+                DatabaseReference pollRef = databaseReference.child("Election").child(pollName);
+                pollRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int val = snapshot.child("endElection").getValue(Integer.class);
+                        boolean hasVoted = snapshot.child("Voters").hasChild(logedInUser);
+
+                        if (val != 1) {
+                            // Set background based on voting status
+                            if (hasVoted) {
+                                button.setBackgroundResource(R.drawable.custom_button_main4); // Background for voted polls
+                            } else {
+                                button.setBackgroundResource(R.drawable.custom_button_main3); // Background for not voted polls
+                            }
+                        } else {
+//                            button.setBackgroundResource(R.drawable.custom_button_ended); // Background for ended polls
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Handle database error
+                    }
+                });
+
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Button button=(Button) v;
-                        String buttonTxt=button.getText().toString();
-                        ElectionName=buttonTxt;
-
+                        ElectionName = pollName;
                         DatabaseReference databaseReference1 = databaseReference.child("Election").child(ElectionName);
                         databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -93,26 +132,22 @@ public class ShowPollsActivity extends AppCompatActivity {
                                     } else {
                                         startActivity(new Intent(ShowPollsActivity.this, VoteCandidateActivity.class));
                                     }
-                                }
-                                else {
+                                } else {
                                     Toast.makeText(ShowPollsActivity.this, "Election has ended!!", Toast.LENGTH_SHORT).show();
                                 }
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
+                                // Handle error
                             }
                         });
-
-                        // Handle button click
-                        // You can perform any desired action here, such as navigating to a detail activity
-                        // or starting the voting process for the selected poll
                     }
                 });
 
                 return button;
             }
+
         };
 
         pollsListView.setAdapter(adapter);

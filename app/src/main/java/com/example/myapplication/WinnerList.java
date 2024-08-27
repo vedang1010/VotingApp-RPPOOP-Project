@@ -73,8 +73,9 @@ public class WinnerList extends AppCompatActivity {
                     button = new Button(getContext());
                     button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     button.setPadding(16, 16, 16, 16);
-                    button.setTextColor(Color.BLACK);
-                    button.setHintTextColor(Color.BLACK);
+                    button.setTextColor(Color.WHITE);
+                    button.setHintTextColor(Color.WHITE);
+                    button.setBackgroundResource(R.drawable.custom_button_main3); // Custom drawable
                 } else {
                     button = (Button) convertView;
                 }

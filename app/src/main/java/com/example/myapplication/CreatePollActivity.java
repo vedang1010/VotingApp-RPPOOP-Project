@@ -141,7 +141,7 @@ public class CreatePollActivity extends AppCompatActivity {
                         userReference.child("Candidates").child(s).child("vote").setValue(vote);
                     }
                     Toast.makeText(CreatePollActivity.this, "Poll Created successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(CreatePollActivity.this, PollAdmin.class));
+                    startActivity(new Intent(CreatePollActivity.this, AdminPage.class));
                     finish();
                 }
 

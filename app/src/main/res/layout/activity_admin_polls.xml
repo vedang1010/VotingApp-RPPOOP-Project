@@ -3,15 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/list_back"
+    android:background="#3F51B5"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".YourActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Polls"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/polls_listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/list_back"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#3F51B5"
+        android:clipToPadding="false"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:padding="8dp"
         tools:listitem="@android:layout/simple_list_item_1" />
 
 </LinearLayout>

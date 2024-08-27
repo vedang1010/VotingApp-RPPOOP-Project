@@ -7,52 +7,58 @@
     android:background="@drawable/back23"
     tools:context=".AdminPage">
 
+    <!-- Button to view polls info -->
     <Button
         android:id="@+id/button9"
-        android:layout_width="346dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="40sp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="40sp"
-        android:background="@drawable/custom_button_background"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/custom_button_main2"
         android:onClick="gotoViewCount"
         android:text="Polls Info"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Button to create polls -->
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/custom_button_main2"
+        android:onClick="gotoCreatePolls"
+        android:text="Create Polls"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button9" />
+
+    <!-- Button to navigate to home -->
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/custom_button_main2"
+        android:onClick="gotoHome"
+        android:text="Home"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button8" />
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="346dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="40sp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="40sp"
-        android:background="@drawable/custom_button_background"
-        android:onClick="gotoHome"
-        android:text="Home"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="345dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="40sp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="40sp"
-        android:background="@drawable/custom_button_background"
-        android:onClick="gotoCreatePolls"
-        android:text="Create Polls"
-        android:textSize="18sp"
-        app:flow_horizontalAlign="start"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
 </androidx.constraintlayout.widget.ConstraintLayout>

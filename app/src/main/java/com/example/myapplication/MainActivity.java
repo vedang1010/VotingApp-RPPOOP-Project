@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent3 = new Intent(this,logInActivity.class);
         startActivity(intent3);
     }
+
 }
 //import android.os.Bundle;
 //
