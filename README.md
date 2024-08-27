@@ -1,4 +1,4 @@
 # VotingApp
 
 To install app
-Download the APK file
+Download the E-VoteX APK file
