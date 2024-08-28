@@ -171,11 +171,27 @@ public class DisplayVoteCountActivity extends AppCompatActivity {
         });
 
     }
-    public void EndVoting(View view){
-        databaseReference.child("Election").child(ElectionName).child("endElection").setValue(1);
-        Intent intent2 = new Intent(this, DisplayVoteCountActivity.class);
-        startActivity(intent2);
+    public void EndVoting(View view) {
+        databaseReference.child("Election").child(ElectionName).child("endElection").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Integer temp = dataSnapshot.getValue(Integer.class);
+                if (temp != null && temp == 1) {
+                    Toast.makeText(getApplicationContext(), "Election has already ended", Toast.LENGTH_SHORT).show();
+                } else {
+                    databaseReference.child("Election").child(ElectionName).child("endElection").setValue(1);
+                    Intent intent2 = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(intent2);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(), "Failed to end the election: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
     private void displayCandidates() {
         List<String> candidateInfoList = new ArrayList<>();
         for (Candidate candidate : candidates) {
